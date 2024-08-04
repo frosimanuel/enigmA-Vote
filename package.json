@@ -36,10 +36,15 @@
   },
   "devDependencies": {
     "husky": "~8.0.3",
-    "lint-staged": "~13.2.2"
+    "lint-staged": "~13.2.2",
+    "viem": "^2.18.7"
   },
   "packageManager": "yarn@3.2.3",
   "engines": {
     "node": ">=18.17.0"
+  },
+  "dependencies": {
+    "@nomicfoundation/hardhat-viem": "^2.0.3",
+    "@semaphore-protocol/hardhat": "^4.0.1"
   }
 }

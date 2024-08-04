@@ -12,6 +12,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@adraffy/ens-normalize@npm:1.10.1":
+  version: 1.10.1
+  resolution: "@adraffy/ens-normalize@npm:1.10.1"
+  checksum: 0836f394ea256972ec19a0b5e78cb7f5bcdfd48d8a32c7478afc94dd53ae44c04d1aa2303d7f3077b4f3ac2323b1f557ab9188e8059978748fdcd83e04a80dcc
+  languageName: node
+  linkType: hard
+
 "@alloc/quick-lru@npm:^5.2.0":
   version: 5.2.0
   resolution: "@alloc/quick-lru@npm:5.2.0"
@@ -1361,7 +1368,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@noble/curves@npm:1.4.0":
+"@noble/curves@npm:1.4.0, @noble/curves@npm:^1.4.0, @noble/curves@npm:~1.4.0":
   version: 1.4.0
   resolution: "@noble/curves@npm:1.4.0"
   dependencies:
@@ -1370,7 +1377,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@noble/curves@npm:1.4.2, @noble/curves@npm:~1.4.0":
+"@noble/curves@npm:1.4.2":
   version: 1.4.2
   resolution: "@noble/curves@npm:1.4.2"
   dependencies:
@@ -1616,7 +1623,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nomicfoundation/hardhat-ethers@npm:~3.0.5":
+"@nomicfoundation/hardhat-ethers@npm:^3.0.0, @nomicfoundation/hardhat-ethers@npm:~3.0.5":
   version: 3.0.6
   resolution: "@nomicfoundation/hardhat-ethers@npm:3.0.6"
   dependencies:
@@ -1656,6 +1663,20 @@ __metadata:
   peerDependencies:
     hardhat: "*"
   checksum: c010d5c147fefb23d971969dc7479aac45a0bb8977e86e04c579228ab9683189e7bdebbd7b5f70fe96a10c9d0a2849aab1f10bacad56c925f6255becfd2d585c
+  languageName: node
+  linkType: hard
+
+"@nomicfoundation/hardhat-viem@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "@nomicfoundation/hardhat-viem@npm:2.0.3"
+  dependencies:
+    abitype: ^0.9.8
+    lodash.memoize: ^4.1.2
+  peerDependencies:
+    hardhat: "*"
+    typescript: ~5.0.0
+    viem: ^2.7.6
+  checksum: dbe51ac519e3da60474cd21a4c255deb591b5b8db1226fe77af0c1c5eee1fd45451bb2d767a27780a54ffd30f6e2ce9d4b724a05ba79675530467608400d236b
   languageName: node
   linkType: hard
 
@@ -2167,6 +2188,29 @@ __metadata:
     zustand: ~4.1.2
   languageName: unknown
   linkType: soft
+
+"@semaphore-protocol/contracts@npm:4.0.1":
+  version: 4.0.1
+  resolution: "@semaphore-protocol/contracts@npm:4.0.1"
+  dependencies:
+    "@zk-kit/lean-imt.sol": 2.0.0
+  checksum: 5ea1980a2d4293381342ef7b19a0c8d46458f25fc17af5c0cd0bec2b85bd785f68dfbce6921f6036887979b8f2e2a6d6ce93637de15e47e97b099f8b7282ca64
+  languageName: node
+  linkType: hard
+
+"@semaphore-protocol/hardhat@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "@semaphore-protocol/hardhat@npm:4.0.1"
+  dependencies:
+    "@nomicfoundation/hardhat-ethers": ^3.0.0
+    "@semaphore-protocol/contracts": 4.0.1
+    ethers: ^6.4.0
+    hardhat-dependency-compiler: ^1.1.3
+  peerDependencies:
+    hardhat: ^2.19.4
+  checksum: edaf94b20db5b4fb6cae0fb2b15aa242b9404153119f9df75432677d5a44cb1e28c88409400682bc0ec933750cea4bb9034479f57056ca154d222ecaaebf581f
+  languageName: node
+  linkType: hard
 
 "@sentry/core@npm:5.30.0":
   version: 5.30.0
@@ -3830,6 +3874,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@zk-kit/lean-imt.sol@npm:2.0.0":
+  version: 2.0.0
+  resolution: "@zk-kit/lean-imt.sol@npm:2.0.0"
+  dependencies:
+    poseidon-solidity: 0.0.5
+  checksum: ad06b207cd0403aae757e2cf91ef83eb430105fec41c77a9ea98fb107c1d6b96f09f3606488e34ca3a7883fb7c4691093cd168df888ed12686790eba287df2bd
+  languageName: node
+  linkType: hard
+
 "abbrev@npm:1":
   version: 1.1.1
   resolution: "abbrev@npm:1.1.1"
@@ -3893,6 +3946,21 @@ __metadata:
     zod:
       optional: true
   checksum: 4a4865926e5e8e33e4fab0081a106ce4f627db30b4052fbc449e4707aea6d34d805d46c8d6d0a72234bdd9a2b4900993591515fc299bc57d393181c70dc0c19e
+  languageName: node
+  linkType: hard
+
+"abitype@npm:^0.9.8":
+  version: 0.9.10
+  resolution: "abitype@npm:0.9.10"
+  peerDependencies:
+    typescript: ">=5.0.4"
+    zod: ^3 >=3.22.0
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+    zod:
+      optional: true
+  checksum: de703b58c221395f015c04a8512dde2cff2b9541c577a23cf205204604e624fbfd0e682e82f7954968d5e437cd0d7e630b1c159e73543881a4d0040238bfb13a
   languageName: node
   linkType: hard
 
@@ -5944,7 +6012,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"elliptic@npm:6.5.4":
+"elliptic@npm:6.5.4, elliptic@npm:^6.5.2, elliptic@npm:^6.5.4":
   version: 6.5.4
   resolution: "elliptic@npm:6.5.4"
   dependencies:
@@ -5956,21 +6024,6 @@ __metadata:
     minimalistic-assert: ^1.0.1
     minimalistic-crypto-utils: ^1.0.1
   checksum: d56d21fd04e97869f7ffcc92e18903b9f67f2d4637a23c860492fbbff5a3155fd9ca0184ce0c865dd6eb2487d234ce9551335c021c376cd2d3b7cb749c7d10f4
-  languageName: node
-  linkType: hard
-
-"elliptic@npm:^6.5.2, elliptic@npm:^6.5.4":
-  version: 6.5.6
-  resolution: "elliptic@npm:6.5.6"
-  dependencies:
-    bn.js: ^4.11.9
-    brorand: ^1.1.0
-    hash.js: ^1.0.0
-    hmac-drbg: ^1.0.1
-    inherits: ^2.0.4
-    minimalistic-assert: ^1.0.1
-    minimalistic-crypto-utils: ^1.0.1
-  checksum: 213d778ccfe99ec8f0f871b1cc96a10ac3763d9175215d0a9dc026f291e5f50fea6f635e4e47b4506f9ada25aeb703bd807d8737b880dbb24d092a3001c6d97d
   languageName: node
   linkType: hard
 
@@ -7114,6 +7167,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ethers@npm:^6.4.0":
+  version: 6.13.2
+  resolution: "ethers@npm:6.13.2"
+  dependencies:
+    "@adraffy/ens-normalize": 1.10.1
+    "@noble/curves": 1.2.0
+    "@noble/hashes": 1.3.2
+    "@types/node": 18.15.13
+    aes-js: 4.0.0-beta.5
+    tslib: 2.4.0
+    ws: 8.17.1
+  checksum: 981860c736c7ae121774ad38ea07e3611ce524a77d2fcb77db499b65afe0cbe8f344cd5204d94b68b316349ff770fd2a7d9c8b2039da41c072f98d9864099925
+  languageName: node
+  linkType: hard
+
 "ethers@npm:~6.10.0":
   version: 6.10.0
   resolution: "ethers@npm:6.10.0"
@@ -7515,17 +7583,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fp-ts@npm:1.19.3":
+"fp-ts@npm:1.19.3, fp-ts@npm:^1.0.0":
   version: 1.19.3
   resolution: "fp-ts@npm:1.19.3"
   checksum: eb0d4766ad561e9c5c01bfdd3d0ae589af135556921c733d26cf5289aad9f400110defdd93e6ac1d71f626697bb44d9d95ed2879c53dfd868f7cac3cf5c5553c
-  languageName: node
-  linkType: hard
-
-"fp-ts@npm:^1.0.0":
-  version: 1.19.5
-  resolution: "fp-ts@npm:1.19.5"
-  checksum: 67d2d9c3855d211ca2592b1ef805f98b618157e7681791a776d9d0f7f3e52fcca2122ebf5bc215908c9099fad69756d40e37210cf46cb4075dae1b61efe69e40
   languageName: node
   linkType: hard
 
@@ -8108,6 +8169,15 @@ __metadata:
   bin:
     handlebars: bin/handlebars
   checksum: 00e68bb5c183fd7b8b63322e6234b5ac8fbb960d712cb3f25587d559c2951d9642df83c04a1172c918c41bcfc81bfbd7a7718bbce93b893e0135fc99edea93ff
+  languageName: node
+  linkType: hard
+
+"hardhat-dependency-compiler@npm:^1.1.3":
+  version: 1.2.1
+  resolution: "hardhat-dependency-compiler@npm:1.2.1"
+  peerDependencies:
+    hardhat: ^2.0.0
+  checksum: cc18ca535d861ff06d906ce639669a366879e37f15cb6d83f6a516e183d3fa6d9964a551195fe7bc106dcb2fab2c96eb0360a55cf69fd2b759c6fd01c6dc3d8b
   languageName: node
   linkType: hard
 
@@ -9625,6 +9695,13 @@ __metadata:
   version: 4.5.0
   resolution: "lodash.isequal@npm:4.5.0"
   checksum: da27515dc5230eb1140ba65ff8de3613649620e8656b19a6270afe4866b7bd461d9ba2ac8a48dcc57f7adac4ee80e1de9f965d89d4d81a0ad52bb3eec2609644
+  languageName: node
+  linkType: hard
+
+"lodash.memoize@npm:^4.1.2":
+  version: 4.1.2
+  resolution: "lodash.memoize@npm:4.1.2"
+  checksum: 9ff3942feeccffa4f1fafa88d32f0d24fdc62fd15ded5a74a5f950ff5f0c6f61916157246744c620173dddf38d37095a92327d5fd3861e2063e736a5c207d089
   languageName: node
   linkType: hard
 
@@ -11190,6 +11267,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"poseidon-solidity@npm:0.0.5":
+  version: 0.0.5
+  resolution: "poseidon-solidity@npm:0.0.5"
+  checksum: eb2d84962505a3c8a5756752c8e571ad32f90f4d95fafaffbd03552abfa040553945990d96d0243ddd993d6c2e456a816435c97739610a4f6aabb9249ebf47d7
+  languageName: node
+  linkType: hard
+
 "possible-typed-array-names@npm:^1.0.0":
   version: 1.0.0
   resolution: "possible-typed-array-names@npm:1.0.0"
@@ -12201,8 +12285,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "se-2@workspace:."
   dependencies:
+    "@nomicfoundation/hardhat-viem": ^2.0.3
+    "@semaphore-protocol/hardhat": ^4.0.1
     husky: ~8.0.3
     lint-staged: ~13.2.2
+    viem: ^2.18.7
   languageName: unknown
   linkType: soft
 
@@ -14196,6 +14283,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"viem@npm:^2.18.7":
+  version: 2.18.7
+  resolution: "viem@npm:2.18.7"
+  dependencies:
+    "@adraffy/ens-normalize": 1.10.0
+    "@noble/curves": 1.4.0
+    "@noble/hashes": 1.4.0
+    "@scure/bip32": 1.4.0
+    "@scure/bip39": 1.3.0
+    abitype: 1.0.5
+    isows: 1.0.4
+    webauthn-p256: 0.0.5
+    ws: 8.17.1
+  peerDependencies:
+    typescript: ">=5.0.4"
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: 1456607fd1c38c663fc60dfbfd7fa689b875d44eac45b8c504f4fa188ecdb7c90f682b6a88af681f2e220aea328e3600a640298da0ac6b5128be4373b7705817
+  languageName: node
+  linkType: hard
+
 "wagmi@npm:2.10.10":
   version: 2.10.10
   resolution: "wagmi@npm:2.10.10"
@@ -14245,6 +14354,16 @@ __metadata:
     randombytes: ^2.1.0
     utf8: 3.0.0
   checksum: a1535817a4653f1b5cc868aa19305158122379078a41e13642e1ba64803f6f8e5dd2fb8c45c033612b8f52dde42d8008afce85296c0608276fe1513dece66a49
+  languageName: node
+  linkType: hard
+
+"webauthn-p256@npm:0.0.5":
+  version: 0.0.5
+  resolution: "webauthn-p256@npm:0.0.5"
+  dependencies:
+    "@noble/curves": ^1.4.0
+    "@noble/hashes": ^1.4.0
+  checksum: 2837188d1e6d947c87c5728374fb6aec96387cb766f78e7a04d5903774264feb278d68a639748f09997f591e5278796c662bb5c4e8b8286b0f22254694023584
   languageName: node
   linkType: hard
 

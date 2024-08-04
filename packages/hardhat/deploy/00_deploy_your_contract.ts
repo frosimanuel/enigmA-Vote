@@ -1,6 +1,6 @@
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { DeployFunction } from "hardhat-deploy/types";
-import { Contract } from "ethers";
+import { run } from "hardhat";
 
 /**
  * Deploys a contract named "YourContract" using the deployer account and
@@ -21,11 +21,15 @@ const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEn
   */
   const { deployer } = await hre.getNamedAccounts();
   const { deploy } = hre.deployments;
+  const { semaphore } = await run("deploy:semaphore", {
+    logs: false,
+  });
 
-  await deploy("YourContract", {
+  const semaphoreAddress = await semaphore.getAddress();
+  await deploy("BallotFactory", {
     from: deployer,
     // Contract constructor arguments
-    args: [deployer],
+    args: [semaphoreAddress],
     log: true,
     // autoMine: can be passed to the deploy function to make the deployment process faster on local networks by
     // automatically mining the contract deployment transaction. There is no effect on live networks.
@@ -33,12 +37,11 @@ const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEn
   });
 
   // Get the deployed contract to interact with it after deploying.
-  const yourContract = await hre.ethers.getContract<Contract>("YourContract", deployer);
-  console.log("👋 Initial greeting:", await yourContract.greeting());
+  // const ballotContract = await hre.ethers.getContract<Contract>("Ballot", deployer);
 };
 
 export default deployYourContract;
 
 // Tags are useful if you have multiple deploy files and only want to run one of them.
-// e.g. yarn deploy --tags YourContract
-deployYourContract.tags = ["YourContract"];
+// e.g. yarn deploy --tags Ballot
+deployYourContract.tags = ["BallotFactory"];

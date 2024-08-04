@@ -3,6 +3,8 @@ dotenv.config();
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-ethers";
 import "@nomicfoundation/hardhat-chai-matchers";
+import "@nomicfoundation/hardhat-viem";
+import "@semaphore-protocol/hardhat";
 import "@typechain/hardhat";
 import "hardhat-gas-reporter";
 import "solidity-coverage";
@@ -21,7 +23,7 @@ const etherscanApiKey = process.env.ETHERSCAN_API_KEY || "DNXJA8RX2Q3VZ4URQIWP7Z
 
 const config: HardhatUserConfig = {
   solidity: {
-    version: "0.8.17",
+    version: "0.8.23",
     settings: {
       optimizer: {
         enabled: true,
