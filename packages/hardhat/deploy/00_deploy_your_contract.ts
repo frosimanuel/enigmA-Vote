@@ -21,11 +21,11 @@ const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEn
   */
   const { deployer } = await hre.getNamedAccounts();
   const { deploy } = hre.deployments;
-  const { semaphore } = await run("deploy:semaphore", {
-    logs: false,
-  });
+  // const { semaphore } = await run("deploy:semaphore", {
+  //   logs: false,
+  // });
 
-  const semaphoreAddress = await semaphore.getAddress();
+  const semaphoreAddress = "0x1e0d7FF1610e480fC93BdEC510811ea2Ba6d7c2f";
   await deploy("BallotFactory", {
     from: deployer,
     // Contract constructor arguments
