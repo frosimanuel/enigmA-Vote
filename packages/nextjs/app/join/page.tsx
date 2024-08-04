@@ -111,66 +111,52 @@ const Vote: NextPage = () => {
           </p>
         </div>
       )}
-
       <div>
         <button className="btn btn-primary" onClick={createIdentity}>
           Refresh Identity
         </button>
       </div>
       <hr />
-
       {_identity && (
-        <div>
+        <div className="w-full">
           <p>
-            <strong>Ballots to join: </strong>
+            <strong>Join a Ballot: </strong>
             <br />
           </p>
-          <div className="flex flex-wrap gap-5">
+          <div className="flex flex-wrap gap-5 pt-2 mx-auto">
             {ballots?.map((ballot: any, i: number) => (
-              <div key={ballot.id} className="flex flex-col items-center">
-                <button
-                  className="btn btn-primary"
-                  onClick={async () => {
-                    try {
-                      await writeBallotAsync({
-                        functionName: "joinBallot",
-                        args: [_identity.commitment],
-                        address: ballot,
-                      });
-                      setBallotAddress(ballot);
-                      push("/vote");
-                    } catch (err) {
-                      console.error(err);
-                    }
-                  }}
-                >
-                  Join Ballot {i}
-                </button>
-              </div>
+              <>
+                <div className="card bg-base-100 w-52 shadow-xl" key={ballot.id}>
+                  <div className="card-body p-6">
+                    <h2 className="card-title">Ballot {i}</h2>
+                    <div className="mt-2 mb-4 h-px bg-gray-300"></div>
+                    <div className="card-actions">
+                      <button
+                        className="btn btn-primary w-full"
+                        onClick={async () => {
+                          try {
+                            await writeBallotAsync({
+                              functionName: "joinBallot",
+                              args: [_identity.commitment],
+                              address: ballot,
+                            });
+                            setBallotAddress(ballot);
+                            push("/vote");
+                          } catch (err) {
+                            console.error(err);
+                          }
+                        }}
+                      >
+                        Join
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </>
             ))}
           </div>
-          <br />
-          <br />
-          <br />
-          <p className="mb-5 text-1xl text-accent">
-            {" "}
-            Learn more about{" "}
-            <a className="text-neutral" href="https://docs.semaphore.pse.dev/guides/identities" target="_blank">
-              Semaphore identity
-            </a>{" "}
-            and{" "}
-            <a
-              className="text-neutral"
-              href="https://github.com/privacy-scaling-explorations/zk-kit/tree/main/packages/eddsa-poseidon"
-              target="_blank"
-            >
-              EdDSA
-            </a>
-            .
-          </p>
         </div>
       )}
-      <hr />
     </div>
   );
 };
