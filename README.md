@@ -2,7 +2,7 @@
   <h4 align="center">Built for TheLevelUp Hackathon !</h4>
 
 <h4 align="center">
-  <a href="https://docs.scaffoldeth.io">Slides</a> |
+  <a href="https://www.canva.com/design/DAGM5T86daQ/HCFXclyE3jIqX7A-uA68hw/edit?utm_content=DAGM5T86daQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">Slides</a> |
   <a href="https://scaffoldeth.io">Demo</a>
 </h4>
 
