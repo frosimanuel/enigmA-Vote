@@ -31,6 +31,50 @@ const Vote: NextPage = () => {
   });
 
   const { writeContractAsync: writeBallotAsync } = useWriteBallotContract(ballotAddress);
+
+  const handleClick = async (i: number) => {
+    try {
+      // Uncomment this when we deploy to Sepolia. We'll recreate the group from the Ballot contract
+      // to replicate the on-chain group off-chain. This is needed to generate the proofs.
+      const semaphoreSubgraph = new SemaphoreSubgraph("sepolia");
+      const { members } = await semaphoreSubgraph.getGroup(groupId?.toString() || "0", {
+        members: true,
+      });
+      const group = new Group(members);
+
+      // Group of only one user, just for the local tests
+      const privKey = localStorage.getItem("identity");
+      if (!privKey) {
+        throw new Error("Identity not found");
+      }
+      const identity = new Identity(Buffer.from(privKey, "base64"));
+      // const group = new Group([identity.commitment]);
+      const proposalId = BigInt(i);
+      const { points, merkleTreeDepth, merkleTreeRoot, nullifier } = await generateProof(
+        identity,
+        group,
+        proposalId,
+        Number(groupId),
+      );
+      await writeBallotAsync({
+        functionName: "vote",
+        args: [
+          proposalId,
+          {
+            merkleTreeDepth: BigInt(merkleTreeDepth),
+            merkleTreeRoot: merkleTreeRoot,
+            nullifier: nullifier,
+            message: proposalId,
+            scope: BigInt(groupId || 0n),
+            points: points,
+          },
+        ],
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <div className="flex flex-col items-center flex-grow pt-10 p-8 max-w-5xl mx-auto">
       <h1 className="mb-5 text-5xl font-bold text-neutral">Voting </h1>
@@ -51,48 +95,7 @@ const Vote: NextPage = () => {
                   <span>{proposal.voteCount.toString()} votes</span>
                   <div className="mt-6 mb-4 h-px bg-gray-300"></div>
                   <div className="card-actions">
-                    <button
-                      className="btn btn-secondary w-full"
-                      onClick={async () => {
-                        try {
-                          // Uncomment this when we deploy to Sepolia. We'll recreate the group from the Ballot contract
-                          // to replicate the on-chain group off-chain. This is needed to generate the proofs.
-                          const semaphoreSubgraph = new SemaphoreSubgraph("sepolia");
-                          const { members } = await semaphoreSubgraph.getGroup(groupId?.toString() || "0", {
-                            members: true,
-                          });
-                          const group = new Group(members);
-
-                          // Group of only one user, just for the local tests
-                          const privKey = localStorage.getItem("identity");
-                          const identity = new Identity(Buffer.from(privKey!, "base64"));
-                          // const group = new Group([identity.commitment]);
-                          const proposalId = BigInt(i);
-                          const { points, merkleTreeDepth, merkleTreeRoot, nullifier } = await generateProof(
-                            identity,
-                            group,
-                            proposalId,
-                            Number(groupId),
-                          );
-                          await writeBallotAsync({
-                            functionName: "vote",
-                            args: [
-                              proposalId,
-                              {
-                                merkleTreeDepth: BigInt(merkleTreeDepth),
-                                merkleTreeRoot: merkleTreeRoot,
-                                nullifier: nullifier,
-                                message: proposalId,
-                                scope: BigInt(groupId || 0n),
-                                points: points,
-                              },
-                            ],
-                          });
-                        } catch (err) {
-                          console.error(err);
-                        }
-                      }}
-                    >
+                    <button className="btn btn-secondary w-full" onClick={() => handleClick(i)}>
                       Vote
                     </button>
                   </div>
