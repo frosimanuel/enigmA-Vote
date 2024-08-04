@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useCallback, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { HeaderMenuLinks } from "./HeaderMenuLinks";
 import { ArchiveBoxArrowDownIcon, ArchiveBoxIcon, Bars3Icon, BugAntIcon, ScaleIcon } from "@heroicons/react/24/outline";
@@ -77,7 +78,9 @@ export const Header = () => {
           )}
         </div>
         <Link href="/" passHref className="items-center hidden gap-2 ml-4 mr-6 lg:flex shrink-0">
-          {/* App icon */}
+          <div className="flex relative w-10 h-10">
+            <Image alt="Enigma Vote logo" className="cursor-pointer" fill src="/logo.svg" />
+          </div>
           <div className="flex flex-col">
             <span className="font-bold leading-tight">Enigma Vote</span>
           </div>

@@ -150,25 +150,31 @@ const Vote: NextPage = () => {
               </p>
               <div className="flex flex-wrap gap-5">
                 {ballots?.map((ballot: any, i: number) => (
-                  <div key={ballot.id} className="flex flex-col items-center">
-                    <button
-                      className="btn btn-primary"
-                      onClick={async () => {
-                        try {
-                          await writeBallotAsync({
-                            functionName: "joinBallot",
-                            args: [_identity.commitment],
-                            address: ballot,
-                          });
-                          setBallotAddress(ballot);
-                          push("/vote");
-                        } catch (err) {
-                          console.error(err);
-                        }
-                      }}
-                    >
-                      Join Ballot {i}
-                    </button>
+                  <div className="card bg-base-100 w-52 shadow-xl" key={ballot.id}>
+                    <div className="card-body p-6">
+                      <h2 className="card-title">Ballot {i}</h2>
+                      <div className="mt-2 mb-4 h-px bg-gray-300"></div>
+                      <div className="card-actions">
+                        <button
+                          className="btn btn-primary w-full"
+                          onClick={async () => {
+                            try {
+                              await writeBallotAsync({
+                                functionName: "joinBallot",
+                                args: [_identity.commitment],
+                                address: ballot,
+                              });
+                              setBallotAddress(ballot);
+                              push("/vote");
+                            } catch (err) {
+                              console.error(err);
+                            }
+                          }}
+                        >
+                          Join
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
