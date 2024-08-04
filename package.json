@@ -47,6 +47,8 @@
   },
   "dependencies": {
     "@nomicfoundation/hardhat-viem": "^2.0.3",
-    "@semaphore-protocol/hardhat": "^4.0.1"
+    "@semaphore-protocol/core": "^4.0.1",
+    "@semaphore-protocol/hardhat": "^4.0.1",
+    "hardhat": "^2.22.7"
   }
 }
