@@ -1,4 +1,4 @@
-# 🤫 enigmA-Vote 🤫
+<h1 align="center"> 🤫 enigmA-Vote 🤫</h1>
   <h4 align="center">Built for TheLevelUp Hackathon !</h4>
 
 <h4 align="center">
